@@ -174,6 +174,8 @@
         .group-logo-footer { font-family: Arial, sans-serif; font-weight: 700; color: #888; font-size: 20px; letter-spacing: 1px; border: 2px solid #555; display: inline-block; padding: 5px 15px; }
 
         .privacy-badge { position: fixed; bottom: 20px; right: 20px; background: white; padding: 5px 10px; border-radius: 4px; box-shadow: 0 0 5px rgba(0,0,0,0.2); z-index: 999; color: #666; font-size: 11px; display: flex; align-items: center; gap: 5px; }
+        
+
 
         /* Responsive */
         @media (max-width: 992px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -184,6 +186,7 @@
             .form-grid { grid-template-columns: 1fr; }
             .bg-graphic { display: none; }
         }
+        
     </style>
 </head>
 <body>
@@ -191,12 +194,12 @@
     <header>
         <div class="container">
             <div class="header-top">
-                <div class="logo-main">
+                <div class="logo">
                     UNITECH
                     <span>ENGINEERING</span>
                 </div>
                 <div class="header-info">
-                    <div class="call-info">Call : <span>01543 675800</span></div>
+                    <div class="call-info">Call : <span>0509275800</span></div>
                     <div class="email-info">Email : info@unitech.uk.com</div>
                     <div class="search-box">
                         <input type="text" placeholder="Search ...">
@@ -206,19 +209,21 @@
             </div>
             <nav class="navbar">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">HOME</a></li>
-                    <li class="nav-item"><a href="#">ABOUT US</a></li>
-                    <li class="nav-item"><a href="#">PRODUCTS</a></li>
-                    <li class="nav-item"><a href="#">TESTIMONIALS</a></li>
-                    <li class="nav-item"><a href="#" class="active">NEWS</a></li>
+                    <li class="nav-item"><a href="index.html">HOME</a></li>
+                    <li class="nav-item"><a href="about.html" class="active">ABOUT US</a></li>
+                    <li class="nav-item"><a href="products.html">PRODUCTS</a></li>
+                    <li class="nav-item"><a href="testimonials.html">TESTIMONIALS</a></li>
+                    <li class="nav-item"><a href="news.html">NEWS</a></li>
                     <li class="nav-item"><a href="#">CATALOGUE</a></li>
-                    <li class="nav-item"><a href="#">CASE STUDIES</a></li>
+                    <li class="nav-item"><a href="case-studies.html">CASE STUDIES</a></li>
                     <li class="nav-item"><a href="#">CAREERS</a></li>
-                    <li class="nav-item"><a href="#">CONTACT</a></li>
+                    <li class="nav-item"><a href="contact.html">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+
 
     <div class="news-hero">
         <h1>News</h1>
@@ -361,6 +366,11 @@
     <div class="privacy-badge">
         <i class="fas fa-shield-alt" style="color: #005a9c;"></i> Privacy - Terms
     </div>
+    
+
+
+
 
 </body>
+
 </html>
