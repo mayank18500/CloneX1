@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Unitech Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- Global Resets --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background-color: #fff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        input, button, textarea { font-family: inherit; }
+
+        /* --- Layout Utilities --- */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+        .text-center { text-align: center; }
+
+        /* --- Header Section --- */
+        header { padding: 20px 0 0 0; background: #fff; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; }
+        
+        .logo-main {
+            font-size: 32px; font-weight: 700;
+            background: -webkit-linear-gradient(#add8e6, #005a9c);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: Arial, sans-serif; letter-spacing: 1px;
+        }
+        .logo-main span { display: block; font-size: 12px; letter-spacing: 4px; color: #005a9c; -webkit-text-fill-color: #005a9c; text-align: right; margin-top: -5px; }
+        
+        .header-info { text-align: right; font-size: 14px; color: #666; }
+        .call-info span { color: #005a9c; font-weight: 600; font-size: 22px; }
+        .search-box { display: flex; justify-content: flex-end; margin-top: 5px; }
+        .search-box input { padding: 5px 10px; border: 1px solid #ccc; border-radius: 3px 0 0 3px; font-size: 13px; width: 150px; }
+        .search-box button { padding: 5px 10px; background-color: #e0e0e0; border: 1px solid #ccc; border-left: none; cursor: pointer; font-size: 12px; border-radius: 0 3px 3px 0; }
+
+        /* --- Navigation --- */
+        .navbar { margin-top: 10px; border-top: 1px solid #eee; }
+        .nav-list { display: flex; justify-content: flex-end; gap: 2px; }
+        .nav-item a { display: block; padding: 10px 15px; font-size: 13px; font-weight: 600; color: #555; text-transform: uppercase; }
+        .nav-item a:hover { color: #005a9c; }
+        
+        /* Active State for Contact */
+        .nav-item a.active { background-color: #005a9c; color: white; }
+
+        /* --- Map Section --- */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            margin-bottom: 50px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Contact Details & Enquiries Form Grid --- */
+        .contact-grid {
+            display: flex;
+            gap: 50px;
+            padding-bottom: 80px;
+        }
+
+        /* Left Column: Address */
+        .contact-info-col {
+            flex: 1;
+            font-size: 16px;
+            color: #444;
+        }
+        .contact-info-col h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .address-block {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #444;
+            line-height: 1.5;
+        }
+        .contact-detail-row {
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #444;
+        }
+        .contact-detail-row span {
+            color: #005a9c;
+        }
+
+        /* Right Column: Enquiries Form */
+        .enquiries-col {
+            flex: 1;
+        }
+        .enquiries-col h3 {
+            color: #005a9c;
+            font-size: 24px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .enquiry-form-group {
+            margin-bottom: 15px;
+        }
+        .enquiry-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        .enquiry-input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #555;
+        }
+        .enquiry-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-enquiry-send {
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            color: #333;
+            padding: 6px 15px;
+            font-size: 13px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-enquiry-send:hover {
+            background-color: #d0d0d0;
+        }
+
+        /* --- Request Information Form (Blue Section) --- */
+        .request-section {
+            background-color: #005a9c;
+            padding: 50px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .request-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-box { width: 100%; max-width: 700px; text-align: center; }
+        .request-section h2 { font-size: 24px; margin-bottom: 30px; font-weight: 400; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%; padding: 12px 15px; border-radius: 4px; border: none; font-size: 14px; outline: none;
+        }
+
+        .btn-submit {
+            background-color: white; color: #005a9c; border: none; padding: 10px 40px; font-size: 15px; border-radius: 4px; cursor: pointer; font-weight: 600; margin-top: 10px; transition: 0.3s;
+        }
+        .btn-submit:hover { background-color: #f0f0f0; }
+
+        .bg-graphic {
+            position: absolute; right: 10%; top: 50%; transform: translateY(-50%); font-size: 180px; color: rgba(255,255,255,0.1); z-index: 1;
+        }
+
+        /* --- Footer --- */
+        .main-footer { background-color: #444; color: #ccc; padding: 40px 0; text-align: center; font-size: 14px; }
+        .footer-heading { color: #bbb; font-size: 18px; margin-bottom: 15px; font-weight: 400; }
+        .footer-links a { color: #ccc; margin: 0 8px; text-decoration: underline; font-size: 13px; }
+        .footer-links span { color: #666; }
+        .footer-info { color: #888; font-size: 12px; margin-top: 15px; }
+        .sub-footer { background-color: #2a2a2a; padding: 20px 0; text-align: center; }
+        .sub-footer p { color: #666; font-size: 12px; margin-bottom: 5px; }
+        .group-logo-footer { font-family: Arial, sans-serif; font-weight: 700; color: #888; font-size: 20px; letter-spacing: 1px; border: 2px solid #555; display: inline-block; padding: 5px 15px; }
+
+        .privacy-badge { position: fixed; bottom: 20px; right: 20px; background: white; padding: 5px 10px; border-radius: 4px; box-shadow: 0 0 5px rgba(0,0,0,0.2); z-index: 999; color: #666; font-size: 11px; display: flex; align-items: center; gap: 5px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top { flex-direction: column; text-align: center; }
+            .nav-list { display: none; }
+            .contact-grid { flex-direction: column; gap: 30px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .bg-graphic { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-main">
+                    UNITECH
+                    <span>ENGINEERING</span>
+                </div>
+                <div class="header-info">
+                    <div class="call-info">Call : <span>01543 675800</span></div>
+                    <div class="email-info">Email : info@unitech.uk.com</div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search ...">
+                        <button>Search</button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">HOME</a></li>
+                    <li class="nav-item"><a href="#">ABOUT US</a></li>
+                    <li class="nav-item"><a href="#">PRODUCTS</a></li>
+                    <li class="nav-item"><a href="#">TESTIMONIALS</a></li>
+                    <li class="nav-item"><a href="#">NEWS</a></li>
+                    <li class="nav-item"><a href="#">CATALOGUE</a></li>
+                    <li class="nav-item"><a href="#">CASE STUDIES</a></li>
+                    <li class="nav-item"><a href="#">CAREERS</a></li>
+                    <li class="nav-item"><a href="#" class="active">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2419.699665373178!2d-1.935!3d52.678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870a7c770719497%3A0x3f84d2c8890b0c8!2sUnitech%20Engineering%20Ltd!5e0!3m2!1sen!2suk!4v1629898888888!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="container contact-grid">
+        
+        <div class="contact-info-col">
+            <h2>Unitech Engineering</h2>
+            <div class="address-block">
+                Unitech House<br>
+                Prospect Road<br>
+                Burntwood<br>
+                Staffordshire<br>
+                WS7 0AL
+            </div>
+
+            <div class="contact-detail-row">
+                Tel: <span>01543 675800</span>
+            </div>
+            <div class="contact-detail-row">
+                Email: <span>info@unitech.uk.com</span>
+            </div>
+        </div>
+
+        <div class="enquiries-col">
+            <h3>Enquiries</h3>
+            <form>
+                <div class="enquiry-form-group">
+                    <label class="enquiry-label">Your Name (required)</label>
+                    <input type="text" class="enquiry-input" required>
+                </div>
+                <div class="enquiry-form-group">
+                    <label class="enquiry-label">Your Email (required)</label>
+                    <input type="email" class="enquiry-input" required>
+                </div>
+                <div class="enquiry-form-group">
+                    <label class="enquiry-label">Subject</label>
+                    <input type="text" class="enquiry-input">
+                </div>
+                <div class="enquiry-form-group">
+                    <label class="enquiry-label">Your Message</label>
+                    <textarea class="enquiry-textarea"></textarea>
+                </div>
+                <button type="button" class="btn-enquiry-send">Send</button>
+            </form>
+        </div>
+
+    </div>
+
+    <section class="request-section">
+        <div class="container request-container">
+            <div class="form-box">
+                <h2>Request More Information</h2>
+                <form>
+                    <div class="form-grid">
+                        <input type="text" class="form-input" placeholder="Your Name">
+                        <input type="text" class="form-input" placeholder="Company Name">
+                        <input type="email" class="form-input" placeholder="Email Address">
+                        <input type="tel" class="form-input" placeholder="Phone Number">
+                    </div>
+                    <button type="button" class="btn-submit">Send Request</button>
+                </form>
+            </div>
+        </div>
+        <i class="fas fa-laptop-code bg-graphic"></i>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-heading">Unitech Engineering</div>
+            <div class="footer-links">
+                <a href="#">Home</a> <span>|</span>
+                <a href="#">About Us</a> <span>|</span>
+                <a href="#">Products</a> <span>|</span>
+                <a href="#">Testimonials</a> <span>|</span>
+                <a href="#">News</a> <span>|</span>
+                <a href="#">Careers</a> <span>|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-info">
+                Registered in England. #03165038 | Unitech House, Prospect Road, Burntwood, Staffordshire, WS7 0AL | Tel: 01543 685565 | Fax: 01543 687 070
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <p>Proudly part of the</p>
+        <div class="group-logo-footer">UNITECH GROUP</div>
+    </div>
+
+    <div class="privacy-badge">
+        <i class="fas fa-shield-alt" style="color: #005a9c;"></i> Privacy - Terms
+    </div>
+
+</body>
+</html>
